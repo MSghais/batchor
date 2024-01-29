@@ -9,24 +9,19 @@ import {
   Tr,
 } from "@chakra-ui/react";
 import { BatchType } from "../../types";
-import { ERC20_EXPECTED_COLUMNS, ERC721_EXPECTED_COLUMNS, hasExpectedColumns, hasExpectedColumnsERC721 } from "../../utils/csv";
 interface ITableViewCsv {
   error?:string;
   batchType:BatchType;
   csvData:any[]
 }
-
 const TableCsvView: React.FC<ITableViewCsv> = ({
 error,
 batchType,
 csvData
 }: 
 ITableViewCsv) => {
- 
-
   return (
     <Box>
-    
       <div>
         {error && <p>{error}</p>}
         <Table>
