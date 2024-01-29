@@ -26,7 +26,6 @@ ITableViewCsv) => {
 
   return (
     <Box>
-    
       <div>
         {error && <p>{error}</p>}
         <Table>
