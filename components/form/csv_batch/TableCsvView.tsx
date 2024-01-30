@@ -8,7 +8,7 @@ import {
   Th,
   Tr,
 } from "@chakra-ui/react";
-import { BatchType } from "../../types";
+import { BatchType } from "../../../types";
 interface ITableViewCsv {
   error?:string;
   batchType:BatchType;

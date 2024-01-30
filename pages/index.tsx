@@ -1,12 +1,13 @@
 import type { NextPage } from "next";
-import { Box, Image, Text, useColorModeValue } from "@chakra-ui/react";
+import { Box, Image, Tab, TabList, TabPanel, TabPanels, Tabs, Text, useColorModeValue } from "@chakra-ui/react";
 import HeaderSEO from "../components/HeaderSEO";
 import { CONFIG_WEBSITE } from "../constants";
 import AccountView from "../components/starknet/AccountView";
 import { useState } from "react";
-import UploadCSV from "../components/form/UploadCSV";
+import UploadCSV from "../components/form/csv_batch/UploadCSV";
+import { NftPanel } from "../components/form/nft/NftPanel";
 
-const Home: NextPage = ({}) => {
+const Home: NextPage = ({ }) => {
   const color = useColorModeValue("gray.900", "gray.300");
   const [file, setFile] = useState<File | undefined>();
 
@@ -52,17 +53,33 @@ const Home: NextPage = ({}) => {
                 {CONFIG_WEBSITE.description}
               </Text>
 
-              <Box>
-                <Text 
-                // fontFamily={{ base: "PressStart2P" }}
-                >
-                  Let's batch your TX with a CSV
-                </Text>
-                <UploadCSV
-                  fileParent={file}
-                  setFile={setFile}
-                ></UploadCSV>
-              </Box>
+              <Tabs>
+                <TabList>
+                  <Tab>Batch CSV</Tab>
+                  <Tab>NFT panel</Tab>
+                </TabList>
+                <TabPanels>
+                  <TabPanel>
+
+                    <Box>
+                      <Text
+                      // fontFamily={{ base: "PressStart2P" }}
+                      >
+                        Let's batch your TX with a CSV
+                      </Text>
+                      <UploadCSV
+                        fileParent={file}
+                        setFile={setFile}
+                      ></UploadCSV>
+                    </Box>
+
+                  </TabPanel>
+                  <TabPanel>
+                    <NftPanel></NftPanel>
+                  </TabPanel>
+                </TabPanels>
+              </Tabs>
+
 
               <Box gap="1em">
                 <AccountView></AccountView>

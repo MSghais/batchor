@@ -14,19 +14,19 @@ import {
 } from "@chakra-ui/react";
 import * as xlsx from "xlsx";
 import { useAccount } from "@starknet-react/core";
-import BatchTxModal from "../modal/batch-tx";
-import { BatchType } from "../../types";
+import BatchTxModal from "../../modal/batch-tx";
+import { BatchType } from "../../../types";
 import {
   ERC20_EXPECTED_COLUMNS,
   ERC721_EXPECTED_COLUMNS,
   hasExpectedColumns,
   hasExpectedColumnsERC721,
-} from "../../utils/csv";
+} from "../../../utils/csv";
 import TableCsvView from "./TableCsvView";
 import {
   generateERC20SummaryData,
   generateERC721SummaryData,
-} from "../../utils/generate_text";
+} from "../../../utils/generate_text";
 interface IReadData {
   fileParent?: File;
   setFile: (file: File) => void;
